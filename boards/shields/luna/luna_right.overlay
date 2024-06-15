@@ -7,5 +7,5 @@
 #include "luna.dtsi"
 
 &default_transform {
-	col-offset = <14>;
+	col-offset = <15>;
 };
