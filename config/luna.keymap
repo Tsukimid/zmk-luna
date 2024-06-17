@@ -8,12 +8,180 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define luna 0
-#define navi 1
+// layer definitions
+#define LUNA 0
+#define NUM 1
+#define SRT 2
+#define SFB 3
+#define SYM 4
+#define NAV 5
+#define FUN 6
+// -----------------
 
 / {
     combos {
         #include "combos.dtsi"
+        compatible = "zmk,combos";
+        
+        // BKSP, ENTER, CAPS
+        combo_bspc {
+            timeout-ms = <100>;
+            layers = <0 1>;
+            key-positions = <6 7>;
+            bindings = <&kp BSPC>;
+        };
+
+        combo_cbspc {
+            timeout-ms = <100>;
+            layers = <0 1>;
+            key-positions = <6 7 8>;
+            bindings = <&kp LC(BSPC)>;
+        };
+
+        combo_ctrlw {
+            timeout-ms = <100>;
+            layers = <0 1>;
+            key-positions = <6 7 8 9>;
+            bindings = <&kp LC(W)>;
+        };
+
+        combo_enter {
+            timeout-ms = <100>;
+            layers = <0 1>;
+            key-positions = <23 24 25>;
+            bindings = <&kp ENTER>;
+        };
+
+        combo_caps {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <14 15>;
+            bindings = <&kp CAPS>;
+        };
+
+        combo_capsword {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <4 5>;
+            bindings = <&caps_word>;
+        };
+        
+        // SHORTCUTS
+
+        combo_zhis {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <11 27>;
+            bindings = <&kp LC(R)>;
+        };
+
+        // BRACKETS
+        combo_rangle {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <5 15>;
+            bindings = <&kp GT>;
+        };
+
+        combo_langle {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <4 14>;
+            bindings = <&kp LT>;
+        };
+
+        combo_rround {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <6 16>;
+            bindings = <&kp RPAR>;
+        };
+
+        combo_lround {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <3 13>;
+            bindings = <&kp LPAR>;
+        };
+
+        combo_rcurve {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <7 17>;
+            bindings = <&kp RBRC>;
+        };
+
+        combo_lcurve {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <2 12>;
+            bindings = <&kp LBRC>;
+        };
+
+        combo_rsquare {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <8 18>;
+            bindings = <&kp RBKT>;
+        };
+
+        combo_lsquare {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <11 1>;
+            bindings = <&kp LBKT>;
+        };
+
+        // ALPHA
+        combo_z {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <0 10>;
+            bindings = <&kp Z>;
+        };
+        
+        combo_j {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <11 20>;
+            bindings = <&kp J>;
+        };
+        
+        combo_v {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <13 22>;
+            bindings = <&kp V>;
+        };
+        
+        combo_q {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <16 23>;
+            bindings = <&kp Q>;
+        };
+        
+        combo_pd {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <9 19>;
+            bindings = <&kp DOT>;
+        };
+
+        // LAYERS
+        combo_rsfb {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <17 24>;
+            bindings = <&sl SFB>;
+        };
+
+        combo_lsfb {
+            timeout-ms = <100>;
+            layers = <0>;
+            key-positions = <12 21>;
+            bindings = <&sl SFB>;
+        };
     };
     
     behaviors {
@@ -31,22 +199,72 @@
         compatible = "zmk,keymap";
                 
         luna_layer {
-            label = "luna";
+            label = "LUNA";
             bindings = <
-                &kp W &kp C &kp Y &kp M &kp X        &kp K &kp P &kp O     &kp U    &kp SQT 
-                &kp R &kp S &kp T &kp N &kp V        &kp B &kp H &kp A     &kp I    &kp E
-                      &kp G &kp F &kp L                    &kp D &kp COMMA &kp DOT
-                        &sl navi &skq LSHFT                 &kp SPACE &kp SQT  
+                &kp F &kp P     &kp D &kp W &key_repeat          &kp X &key_repeat &kp O       &kp U    &kp COMMA 
+                &kp S &kp N     &kp T &kp C &kp Y                &kp M &kp H       &kp A       &kp E    &kp I
+                      &lt SRT B &kp K &kp G                            &kp L       &key_repeat &sl SYM
+                        &none  &lt NUM R                                 &lt NAV SPACE &none 
             >;
         };       
                  
-        navi_layer {
-            label = "navi";
+        num_layer {
+            label = "NUM";
+            bindings = <
+                &none      &kp TAB   &sk LALT  &kp DEL &kp LG(P)	    &none &kp N4 &kp N5 &kp N6 &none
+                &sk LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(Q)	    &none &kp N1 &kp N2 &kp N3 &sk LSHIFT
+                           &kp LC(X) &kp LC(C) &kp LC(V) 	    	          &kp N7 &kp N8 &kp N9
+                             &trans &trans                                      &kp N0 &none  
+            >;
+        };
+                
+        srt_layer {
+            label = "SRT";
+            bindings = <
+                &none         &none &none           &none       &kp LC(Y)	    &none &none             &kp LA(LC(PG_UP)) &kp LA(LC(PG_DN)) &none
+                &kp LS(LG(S)) &none &kp LC(LA(D))   &kp LG(TAB) &kp LC(Z)	    &none &kp LA(LC(LEFT))  &kp LA(LC(UP))    &kp LA(LC(DOWN))  &kp LA(LC(RIGHT)) 
+                              &none &kp LC(LS(TAB)) &kp LC(TAB) 	    	          &kp LA(LC(SPACE)) &kp LA(UP)        &kp LA(DOWN)
+                                &none  &trans                                           &trans &none
+            >;
+        }; 
+        
+        sfb_layer {
+            label = "SFB";
             bindings = <
                 &none &none &none &none &none	    &none &none &none &none &none
                 &none &none &none &none &none	    &none &none &none &none &none
-                      &none &none &none 	    	  &none &none &none
-                        &trans &trans                    &trans &trans  
+                      &none &none &none 	    	      &none &none &none
+                        &none  &trans                       &trans &none  
+            >;
+        };      
+                 
+        sym_layer {
+            label = "SYM";
+            bindings = <
+                &kp HASH &kp UNDER &kp EQUAL &kp AT  &kp CARET	    &kp PLUS &kp EXCL  &none    &none &none
+                &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp STAR 	    &kp AMPS &kp QMARK &kp DQT  &none &none
+                         &kp DLLR  &kp PIPE  &kp TILDE	    	             &kp PRCNT &kp BSLH &none
+                           &none  &trans                                       &trans &none  
+            >;
+        };
+                
+        nav_layer {
+            label = "NAV";
+            bindings = <
+                &none      &none        &none        &none    &none	    &none &kp K_PP &kp PG_UP    &kp PG_DN    &none
+                &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp LEFT &kp UP       &kp DOWN     &kp RIGHT
+                           &kp C_BRI_DN &kp C_BRI_UP &none 	       	          &none    &kp K_VOL_UP &kp K_VOL_DN
+                            &none  &sl FUN                                      &trans &none  
+            >;
+        };       
+                 
+        fun_layer {
+            label = "FUN";
+            bindings = <
+                &none &none &none &none &none	    &kp F12 &kp N4 &kp N5 &kp N6 &kp F11
+                &none &none &none &none &none	    &none   &kp N1 &kp N2 &kp N3 &kp F10
+                      &none &none &none 	    	        &kp N7 &kp N8 &kp N9
+                        &none  &trans                         &trans &none  
             >;
         };
     };
