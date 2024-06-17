@@ -188,7 +188,7 @@
             compatible = "zmk,behaviour-macro";
             #binding-cells = <0>;
             bindings
-                = <& macro_tap &kp E &kp U>
+                = <&macro_tap &kp E &kp U>
                 ;
         };
 
@@ -196,7 +196,7 @@
             compatible = "zmk,behaviour-macro";
             #binding-cells = <0>;
             bindings
-                = <& macro_tap &kp U &kp E>
+                = <&macro_tap &kp U &kp E>
                 ;
         };
 
@@ -204,7 +204,7 @@
             compatible = "zmk,behaviour-macro";
             #binding-cells = <0>;
             bindings
-                = <& macro_tap &kp A &kp O>
+                = <&macro_tap &kp A &kp O>
                 ;
         };
 
@@ -212,7 +212,7 @@
             compatible = "zmk,behaviour-macro";
             #binding-cells = <0>;
             bindings
-                = <& macro_tap &kp O &kp A>
+                = <&macro_tap &kp O &kp A>
                 ;
         };
     };
