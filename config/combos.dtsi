@@ -8,10 +8,10 @@ compatible = "zmk,combos";
     timeout-ms = <MS>; \
   };
 
-COMBO(bspc, &kp BSPC, 6 7, 0 1, 100)
-COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 100)
-COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 100)
-COMBO(enter, &kp ENTER, 23 24 25, 0 1, 100)
+COMBO(bspc, &kp BSPC, 6 7, luna num, 100)
+COMBO(cbspc, &kp LC(BSPC), 6 7 8, luna num, 100)
+COMBO(ctrlw, &kp LC(W), 6 7 8 9, luna num, 100)
+COMBO(enter, &kp ENTER, 23 24 25, luna num, 100)
 COMBO(caps, &kp CAPS, 14 15, luna, 100)
 COMBO(capsword, &caps_word, 4 5, luna, 100)
 COMBO(zhis, &kp LC(R), 11 27, luna, 100)
