@@ -20,7 +20,7 @@
 
 / {
     combos {
-        compatible = "zmk,combos";
+        #include "combos.dtsi"
         
         // BKSP, ENTER, CAPS
         combo_bspc {
