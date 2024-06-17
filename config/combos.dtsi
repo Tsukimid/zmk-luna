@@ -8,7 +8,7 @@ compatible = "zmk,combos";
     timeout-ms = <MS>; \
   };
 
-COMBO(z, &kp Z, 1 3, luna, 20)
+COMBO(z, &kp Z, 1 3, luna, 2000)
 COMBO(q, &kp Q, 2 3, luna, 20)
 COMBO(j, &kp J, 1 2, luna, 20)
 COMBO(fslh, &kp FSLH, 23 24, luna, 20)
