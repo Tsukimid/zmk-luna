@@ -185,7 +185,7 @@
 
     macros {
         tap_eu: tap_eu {
-            compatible = "zmk,behaviour-macro";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp E &kp U>
@@ -193,7 +193,7 @@
         };
 
         tap_ue: tap_ue {
-            compatible = "zmk,behaviour-macro";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp U &kp E>
@@ -201,7 +201,7 @@
         };
 
         tap_ao: tap_ao {
-            compatible = "zmk,behaviour-macro";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp A &kp O>
@@ -209,7 +209,7 @@
         };
 
         tap_oa: tap_oa {
-            compatible = "zmk,behaviour-macro";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp O &kp A>
