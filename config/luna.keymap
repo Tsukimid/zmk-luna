@@ -225,7 +225,7 @@
             bindings = <
                 &kp F &kp P     &kp D &kp W &key_repeat          &kp X &key_repeat &kp O       &kp U    &kp COMMA 
                 &kp S &kp N     &kp T &kp C &kp Y                &kp M &kp H       &kp A       &kp E    &kp I
-                      &lt SRT B &kp K &kp G                            &kp L       &key_repeat &tap_oa
+                      &lt SRT B &kp K &kp G                            &kp L       &key_repeat &sl SYM
                         &none  &lt NUM R                                 &lt NAV SPACE &none 
             >;
         };       
