@@ -45,38 +45,38 @@
     };
 
    combos {
-compatible = "zmk,combos";
+        compatible = "zmk,combos";
 
-#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, MS) \
-  combo_##NAME { \
-    bindings = <BINDINGS>; \
-    key-positions = <KEYPOS>; \
-    layers = <LAYERS>; \
-    timeout-ms = <MS>; \
-  };
+        #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, MS) \
+          combo_##NAME { \
+            bindings = <BINDINGS>; \
+            key-positions = <KEYPOS>; \
+            layers = <LAYERS>; \
+            timeout-ms = <MS>; \
+        };
 
-COMBO(bspc, &kp BSPC, 6 7, 0 1, 100)
-COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 100)
-COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 100)
-COMBO(enter, &kp ENTER, 23 24 25, 0 1, 100)
-COMBO(caps, &kp CAPS, 14 15, 0, 100)
-COMBO(capsword, &caps_word, 4 5, 0, 100)
-COMBO(zhis, &kp LC(R), 11 27, 0, 100)
-COMBO(rangle, &kp GT, 5 15, 0, 100)
-COMBO(langle, &kp LT, 4 14, 0, 100)
-COMBO(rround, &kp RPAR, 6 16, 0, 100)
-COMBO(lround, &kp LPAR, 3 13, 0, 100)
-COMBO(rcurve, &kp RBRC, 7 17, 0, 100)
-COMBO(lcurve, &kp LBRC, 2 12, 0, 100)
-COMBO(rsquare, &kp RBKT, 8 18, 0, 100)
-COMBO(lsquare, &kp LBKT, 1 11, 0, 100)
-COMBO(z, &kp Z, 1 3, 0, 100)
-COMBO(j, &kp J, 2 3, 0, 100)
-COMBO(v, &kp V, 1 2, 0, 100)
-COMBO(q, &kp Q, 1 2, 0, 100)
-COMBO(dot, &kp DOT, 1 2, 0, 100)
-COMBO(rsfb, &sl SFB, 17 24, 0, 100)
-COMBO(lsfb, &sl SFB, 12 21, 0, 100)
+        COMBO(bspc, &kp BSPC, 6 7, 0 1, 100)
+        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 100)
+        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 100)
+        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 100)
+        COMBO(caps, &kp CAPS, 14 15, 0, 100)
+        COMBO(capsword, &caps_word, 4 5, 0, 100)
+        COMBO(zhis, &kp LC(R), 11 27, 0, 100)
+        COMBO(rangle, &kp GT, 5 15, 0, 100)
+        COMBO(langle, &kp LT, 4 14, 0, 100)
+        COMBO(rround, &kp RPAR, 6 16, 0, 100)
+        COMBO(lround, &kp LPAR, 3 13, 0, 100)
+        COMBO(rcurve, &kp RBRC, 7 17, 0, 100)
+        COMBO(lcurve, &kp LBRC, 2 12, 0, 100)
+        COMBO(rsquare, &kp RBKT, 8 18, 0, 100)
+        COMBO(lsquare, &kp LBKT, 1 11, 0, 100)
+        COMBO(z, &kp Z, 0 10, 0, 100)
+        COMBO(j, &kp J, 11 20, 0, 100)
+        COMBO(v, &kp V, 13 22, 0, 100)
+        COMBO(q, &kp Q, 16 23, 0, 100)
+        COMBO(dot, &kp DOT, 9 19, 0, 100)
+        COMBO(rsfb, &sl SFB, 17 24, 0, 100)
+        COMBO(lsfb, &sl SFB, 12 21, 0, 100)
 
         /*compatible = "zmk,combos";
         
