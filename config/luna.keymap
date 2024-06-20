@@ -44,9 +44,9 @@
         };
     };
 
-   /* combos {
+   combos {
         #include "combos.dtsi"
-        compatible = "zmk,combos";
+        /*compatible = "zmk,combos";
         
         // BKSP, ENTER, CAPS
         combo_bspc {
@@ -206,8 +206,8 @@
             layers = <0>;
             key-positions = <12 21>;
             bindings = <&sl SFB>;
-        };
-    };*/
+        };*/
+    };
 
     keymap {
         compatible = "zmk,keymap";
