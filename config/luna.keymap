@@ -81,7 +81,7 @@
         COMBO(j, &kp J, 11 20, 0, 100)
         COMBO(v, &kp V, 13 22, 0, 100)
         COMBO(q, &kp Q, 16 23, 0, 100)
-        COMBO(dot, &kp DOT, 9 19, 0, 100)
+        COMBO(dot, &pdcol, 9 19, 0, 100)
 
         // LAYERS
         COMBO(lsfb, &sl SFB, 12 21, 0, 100)
