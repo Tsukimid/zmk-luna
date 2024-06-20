@@ -19,9 +19,35 @@
 // -----------------
 
 / {
-    combos {
-        compatible = "zmk,combos";
+    behaviors {
+        skq: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_KEY_QUICK_RELEASE";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            quick-release;
+            release-after-ms = <1000>;
+        };
 
+        pdcol: period_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        cmscl: comma_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT)>;
+        };
+    };
+
+    combos {
+        #include "combos.dtsi"
+        compatible = "zmk,combos";
+        
         // BKSP, ENTER, CAPS
         combo_bspc {
             timeout-ms = <100>;
@@ -164,7 +190,7 @@
             timeout-ms = <100>;
             layers = <0>;
             key-positions = <9 19>;
-            bindings = <&kp DOT>;
+            bindings = <&pdcol>;
         };
 
         // LAYERS
@@ -183,47 +209,13 @@
         };
     };
 
-    macros {
-        tap_eu: tap_eu {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp E &kp U>
-                ;
-        };
-
-        tap_ue: tap_ue {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp U &kp E>
-                ;
-        };
-
-        tap_ao: tap_ao {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp A &kp O>
-                ;
-        };
-
-        tap_oa: tap_oa {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp O &kp A>
-                ;
-        };
-    };
-    
     keymap {
         compatible = "zmk,keymap";
                 
         luna_layer {
             label = "LUNA";
             bindings = <
-                &kp F &kp P     &kp D &kp W &key_repeat          &kp X &key_repeat &kp O       &kp U    &kp COMMA 
+                &kp F &kp P     &kp D &kp W &key_repeat          &kp X &key_repeat &kp O       &kp U    &cmscl 
                 &kp S &kp N     &kp T &kp C &kp Y                &kp M &kp H       &kp A       &kp E    &kp I
                       &lt SRT B &kp K &kp G                            &kp L       &key_repeat &sl SYM
                         &none  &lt NUM R                                 &lt NAV SPACE &none 
@@ -253,10 +245,10 @@
         sfb_layer {
             label = "SFB";
             bindings = <
-                &none &tap_eu &none &tap_ao &none	    &none &tap_ao &none &tap_eu &none
-                &none &tap_ue &none &tap_oa &none	    &none &tap_oa &none &tap_ue &none
-                      &none   &none &none 	    	          &none   &none &none
-                        &none  &trans                           &trans &none  
+                &none &none &none &none &none	    &none &none &none &none &none
+                &none &none &none &none &none	    &none &none &none &none &none
+                      &none &none &none 	    	      &none &none &none
+                        &none  &trans                       &trans &none  
             >;
         };      
                  
