@@ -8,7 +8,7 @@ compatible = "zmk,combos";
     timeout-ms = <MS>; \
   };
 
-COMBO(bspc, &kp BSPC, 6 7, luna num, 100)
+COMBO(bspc, &kp BSPC, 6 7, 0 1, 100)
 COMBO(cbspc, &kp LC(BSPC), 6 7 8, luna num, 100)
 COMBO(ctrlw, &kp LC(W), 6 7 8 9, luna num, 100)
 COMBO(enter, &kp ENTER, 23 24 25, luna num, 100)
