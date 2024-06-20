@@ -44,7 +44,7 @@
         };
     };
 
-    combos {
+   /* combos {
         #include "combos.dtsi"
         compatible = "zmk,combos";
         
@@ -207,7 +207,7 @@
             key-positions = <12 21>;
             bindings = <&sl SFB>;
         };
-    };
+    };*/
 
     keymap {
         compatible = "zmk,keymap";
