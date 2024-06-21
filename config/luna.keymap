@@ -88,14 +88,48 @@
         COMBO(rsfb, &sl SFB, 17 24, 0, 100)
     };
 
+    macros {
+        tap_ue: ue {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp U &kp E>
+                ;
+        };
+
+        tap_eu: eu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp E &kp U>
+                ;
+        };
+
+        tap_oa: oa {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp O &kp A>
+                ;
+        };
+
+        tap_ao: ao {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp A &kp O>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
                 
         luna_layer {
             label = "LUNA";
             bindings = <
-                &kp F &kp P     &kp D &kp W &key_repeat          &kp X &key_repeat &kp O       &kp U    &cmscl 
-                &kp S &kp N     &kp T &kp C &kp Y                &kp M &kp H       &kp A       &kp E    &kp I
+                &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
+                &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
                       &lt SRT B &kp K &kp G                            &kp L       &key_repeat &sl SYM
                         &none  &lt NUM R                                 &lt NAV SPACE &none 
             >;
@@ -104,8 +138,8 @@
         num_layer {
             label = "NUM";
             bindings = <
-                &none      &kp TAB   &sk LALT  &kp DEL &kp LG(P)	    &none &kp N4 &kp N5 &kp N6 &none
-                &sk LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(Q)	    &none &kp N1 &kp N2 &kp N3 &sk LSHIFT
+                &none      &kp TAB   &sk LALT  &kp DEL &kp LG(Q)	    &none &kp N4 &kp N5 &kp N6 &none
+                &sk LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(P)	    &none &kp N1 &kp N2 &kp N3 &sk LSHIFT
                            &kp LC(X) &kp LC(C) &kp LC(V) 	    	          &kp N7 &kp N8 &kp N9
                              &trans &trans                                      &kp N0 &none  
             >;
@@ -124,8 +158,8 @@
         sfb_layer {
             label = "SFB";
             bindings = <
-                &none &none &none &none &none	    &none &none &none &none &none
-                &none &none &none &none &none	    &none &none &none &none &none
+                &none &tap_eu &none &tap_ao &none	    &none &tap_ao &none &tap_eu &none
+                &none &tap_ue &none &tap_oa &none	    &none &tap_oa &none &tap_ue &none
                       &none &none &none 	    	      &none &none &none
                         &none  &trans                       &trans &none  
             >;
