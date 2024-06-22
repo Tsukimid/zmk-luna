@@ -61,7 +61,7 @@
         COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 100)
         COMBO(enter, &kp ENTER, 23 24 25, 0 1, 100)
         COMBO(caps, &kp CAPS, 14 15, 0, 100)
-        COMBO(capsword, &caps_word, 4 5, 0, 100)
+        COMBO(capsword, &caps_word, 3 6, 0, 100)
 
         // SHORTCUTS
         COMBO(zhis, &kp LC(R), 11 27, 0, 100)
@@ -120,6 +120,14 @@
                 = <&macro_tap &kp A &kp O>
                 ;
         };
+
+        lmao: lmao {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                =  <&macro_tap &kp L &kp M &kp A &kp O>
+                ;
+        };
     };
 
     keymap {
@@ -168,8 +176,8 @@
         sym_layer {
             label = "SYM";
             bindings = <
-                &kp HASH &kp UNDER &kp EQUAL &kp AT  &kp CARET	    &kp PLUS &kp EXCL  &none    &none &none
-                &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp STAR 	    &kp AMPS &kp QMARK &kp DQT  &none &none
+                &kp HASH &kp UNDER &kp EQUAL &kp AT  &kp STAR	    &kp AMPS &kp EXCL  &none    &none &none
+                &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp CARET 	    &kp PLUS &kp QMARK &kp DQT  &none &lmao
                          &kp DLLR  &kp PIPE  &kp TILDE	    	             &kp PRCNT &kp BSLH &none
                            &none  &trans                                       &trans &none  
             >;
