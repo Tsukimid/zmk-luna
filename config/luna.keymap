@@ -138,8 +138,8 @@
         num_layer {
             label = "NUM";
             bindings = <
-                &none      &kp TAB   &sk LALT  &kp DEL &kp LG(Q)	    &none &kp N4 &kp N5 &kp N6 &none
-                &sk LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(P)	    &none &kp N1 &kp N2 &kp N3 &sk LSHIFT
+                &none      &kp TAB   &sk LALT  &kp DEL &kp LG(P)	    &none &kp N4 &kp N5 &kp N6 &none
+                &sk LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(Q)	    &none &kp N1 &kp N2 &kp N3 &sk LSHIFT
                            &kp LC(X) &kp LC(C) &kp LC(V) 	    	          &kp N7 &kp N8 &kp N9
                              &trans &trans                                      &kp N0 &none  
             >;
