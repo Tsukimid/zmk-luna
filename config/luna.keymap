@@ -56,12 +56,12 @@
         };
 
         // BSPC, ENTER, CAPS
-        COMBO(bspc, &kp BSPC, 6 7, 0 1, 100)
-        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 100)
-        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 100)
-        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 100)
-        COMBO(caps, &kp CAPS, 14 15, 0, 100)
-        COMBO(capsword, &caps_word, 3 6, 0, 100)
+        COMBO(bspc, &kp BSPC, 6 7, 0 1, 50)
+        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 50)
+        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 50)
+        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 50)
+        COMBO(caps, &kp CAPS, 14 15, 0, 50)
+        COMBO(capsword, &caps_word, 3 6, 0, 50)
 
         // SHORTCUTS
         COMBO(zhis, &kp LC(R), 11 27, 0, 100)
