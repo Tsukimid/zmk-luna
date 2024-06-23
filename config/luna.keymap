@@ -156,7 +156,7 @@
         srt_layer {
             label = "SRT";
             bindings = <
-                &none         &none &none           &none       &kp LC(Y)	    &kp LA(COMMA) &kp LA(DOT        &kp LA(LC(PG_UP)) &kp LA(LC(PG_DN)) &none
+                &none         &none &none           &none       &kp LC(Y)	    &kp LA(COMMA) &kp LA(DOT)       &kp LA(LC(PG_UP)) &kp LA(LC(PG_DN)) &none
                 &kp LS(LG(S)) &none &kp LC(N6)      &kp LG(TAB) &kp LC(Z)	    &kp LA(LS(R)) &kp LA(LC(LEFT))  &kp LA(LC(UP))    &kp LA(LC(DOWN))  &kp LA(LC(RIGHT)) 
                               &none &kp LC(LS(TAB)) &kp LC(TAB) 	    	                  &kp LA(LC(SPACE)) &kp LA(LC(H))     &kp LA(LC(L))
                                 &none  &sl BNM                                                  &trans &none
