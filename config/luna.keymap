@@ -169,7 +169,7 @@
             bindings = <
                 &none &none &none &none &none	    &none &kp LA(LC(N4)) &kp LA(LC(N5)) &kp LA(LC(N6)) &none
                 &none &none &none &none &none	    &none &kp LA(LC(N1)) &kp LA(LC(N2)) &kp LA(LC(N3)) &none
-                      &none &none &none 	    	      &kp LA(LC(N7)) &kp LA(LC(N8)) &kp LA(LC(N8))
+                      &none &none &none 	    	      &kp LA(LC(N7)) &kp LA(LC(N8)) &kp LA(LC(N9))
                         &none  &trans                       &kp LA(LC(N0)) &none  
             >;
         };      
