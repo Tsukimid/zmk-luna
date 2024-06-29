@@ -43,6 +43,15 @@
             bindings = <&kp COMMA>, <&kp SEMI>;
             mods = <(MOD_LSFT)>;
         };
+
+        bht: balanced_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <10>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
    combos {
@@ -57,36 +66,36 @@
         };
 
         // BSPC, ENTER, CAPS
-        COMBO(bspc, &kp BSPC, 6 7, 0 1, 50)
-        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 50)
-        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 50)
-        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 50)
-        COMBO(caps, &kp CAPS, 14 15, 0, 50)
-        COMBO(capsword, &caps_word, 3 6, 0, 50)
+        COMBO(bspc, &kp BSPC, 6 7, 0 1, 10)
+        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 10)
+        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 10)
+        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 10)
+        COMBO(caps, &kp CAPS, 14 15, 0, 10)
+        COMBO(capsword, &caps_word, 3 6, 0, 10)
 
         // SHORTCUTS
-        COMBO(zhis, &kp LC(R), 11 27, 0, 100)
+        COMBO(zhis, &kp LC(R), 11 27, 0, 10)
 
         // BRACKETS
-        COMBO(rangle, &kp GT, 5 15, 0, 100)
-        COMBO(langle, &kp LT, 4 14, 0, 100)
-        COMBO(rround, &kp RPAR, 6 16, 0, 100)
-        COMBO(lround, &kp LPAR, 3 13, 0, 100)
-        COMBO(rcurve, &kp RBRC, 7 17, 0, 100)
-        COMBO(lcurve, &kp LBRC, 2 12, 0, 100)
-        COMBO(rsquare, &kp RBKT, 8 18, 0, 100)
-        COMBO(lsquare, &kp LBKT, 1 11, 0, 100)
+        COMBO(rangle, &kp GT, 5 15, 0, 10)
+        COMBO(langle, &kp LT, 4 14, 0, 10)
+        COMBO(rround, &kp RPAR, 6 16, 0, 10)
+        COMBO(lround, &kp LPAR, 3 13, 0, 10)
+        COMBO(rcurve, &kp RBRC, 7 17, 0, 10)
+        COMBO(lcurve, &kp LBRC, 2 12, 0, 10)
+        COMBO(rsquare, &kp RBKT, 8 18, 0, 10)
+        COMBO(lsquare, &kp LBKT, 1 11, 0, 10)
 
         // ALPHAS
-        COMBO(z, &kp Z, 0 10, 0, 100)
-        COMBO(j, &kp J, 11 20, 0, 100)
-        COMBO(v, &kp V, 13 22, 0, 100)
-        COMBO(q, &kp Q, 16 23, 0, 100)
-        COMBO(dot, &pdcol, 9 19, 0 1, 100)
+        COMBO(z, &kp Z, 0 10, 0, 10)
+        COMBO(j, &kp J, 11 20, 0, 10)
+        COMBO(v, &kp V, 13 22, 0, 10)
+        COMBO(q, &kp Q, 16 23, 0, 10)
+        COMBO(dot, &pdcol, 9 19, 0 1, 10)
 
         // LAYERS
-        COMBO(lsfb, &sl SFB, 12 21, 0, 100)
-        COMBO(rsfb, &sl SFB, 17 24, 0, 100)
+        COMBO(lsfb, &sl SFB, 12 21, 0, 10)
+        COMBO(rsfb, &sl SFB, 17 24, 0, 10)
     };
 
     macros {
@@ -140,7 +149,7 @@
                 &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
                 &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
                       &lt SRT B &kp K &kp G                            &kp L       &key_repeat &sl SYM
-                        &none  &lt NUM R                                 &lt NAV SPACE &none 
+                        &none  &bht NUM R                                &bht NAV SPACE &none 
             >;
         };       
                  
