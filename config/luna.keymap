@@ -18,6 +18,9 @@
 #define NAV 6
 #define FUN 7
 // -----------------
+&sl {
+    release-after-ms = <2000>;
+};
 
 / {
     behaviors {
@@ -50,7 +53,16 @@
             tapping-term-ms = <180>;
             quick-tap-ms = <10>;
             flavor = "balanced";
-            bindings = <&kp>, <&kp>;
+            bindings = <&sl>, <&kp>;
+        };
+
+        bsl: balanced_sticky_layers {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <10>;
+            flavor = "balanced";
+            bindings = <&sl>, <&sl>;
         };
     };
 
@@ -66,36 +78,36 @@
         };
 
         // BSPC, ENTER, CAPS
-        COMBO(bspc, &kp BSPC, 6 7, 0 1, 10)
-        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 10)
-        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 10)
-        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 10)
-        COMBO(caps, &kp CAPS, 14 15, 0, 10)
-        COMBO(capsword, &caps_word, 3 6, 0, 10)
+        COMBO(bspc, &kp BSPC, 6 7, 0 1, 30)
+        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 30)
+        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 30)
+        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 30)
+        COMBO(caps, &kp CAPS, 14 15, 0, 30)
+        COMBO(capsword, &caps_word, 3 6, 0, 30)
 
         // SHORTCUTS
         COMBO(zhis, &kp LC(R), 11 27, 0, 10)
 
         // BRACKETS
-        COMBO(rangle, &kp GT, 5 15, 0, 10)
-        COMBO(langle, &kp LT, 4 14, 0, 10)
-        COMBO(rround, &kp RPAR, 6 16, 0, 10)
-        COMBO(lround, &kp LPAR, 3 13, 0, 10)
-        COMBO(rcurve, &kp RBRC, 7 17, 0, 10)
-        COMBO(lcurve, &kp LBRC, 2 12, 0, 10)
-        COMBO(rsquare, &kp RBKT, 8 18, 0, 10)
-        COMBO(lsquare, &kp LBKT, 1 11, 0, 10)
+        COMBO(rangle, &kp GT, 5 15, 0, 50)
+        COMBO(langle, &kp LT, 4 14, 0, 50)
+        COMBO(rround, &kp RPAR, 6 16, 0, 50)
+        COMBO(lround, &kp LPAR, 3 13, 0, 50)
+        COMBO(rcurve, &kp RBRC, 7 17, 0, 50)
+        COMBO(lcurve, &kp LBRC, 2 12, 0, 50)
+        COMBO(rsquare, &kp RBKT, 8 18, 0, 50)
+        COMBO(lsquare, &kp LBKT, 1 11, 0, 50)
 
         // ALPHAS
-        COMBO(z, &kp Z, 0 10, 0, 10)
-        COMBO(j, &kp J, 11 20, 0, 10)
-        COMBO(v, &kp V, 13 22, 0, 10)
-        COMBO(q, &kp Q, 16 23, 0, 10)
-        COMBO(dot, &pdcol, 9 19, 0 1, 10)
+        COMBO(z, &kp Z, 0 10, 0, 50)
+        COMBO(j, &kp J, 11 20, 0, 50)
+        COMBO(v, &kp V, 13 22, 0, 50)
+        COMBO(q, &kp Q, 16 23, 0, 50)
+        COMBO(dot, &pdcol, 9 19, 0 1, 50)
 
         // LAYERS
-        COMBO(lsfb, &sl SFB, 12 21, 0, 10)
-        COMBO(rsfb, &sl SFB, 17 24, 0, 10)
+        COMBO(lsfb, &sl SFB, 12 21, 0, 50)
+        COMBO(rsfb, &sl SFB, 17 24, 0, 50)
     };
 
     macros {
@@ -148,7 +160,7 @@
             bindings = <
                 &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
                 &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
-                      &lt SRT B &kp K &kp G                            &kp L       &key_repeat &sl SYM
+                      &bht SRT B &kp K &kp G                           &kp L       &key_repeat &bsl SFB SYM
                         &none  &bht NUM R                                &bht NAV SPACE &none 
             >;
         };       
@@ -187,8 +199,8 @@
             label = "SFB";
             bindings = <
                 &none &none   &none &none   &none	    &none &none   &none &none   &none
-                &none &tap_ue &none &tap_oa &none	    &none &tap_oa &none &tap_ue &none
-                      &tap_eu &none &tap_ao 	    	      &tap_ao &none &tap_eu
+                &none &tap_ue &none &tap_oa &none	    &none &tap_oa &tap_ue &tap_ue &none
+                      &tap_eu &none &tap_ao 	    	      &tap_ao &tap_eu &tap_eu
                         &none  &trans                           &trans &none  
             >;
         };      
