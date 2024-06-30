@@ -54,15 +54,6 @@
             flavor = "balanced";
             bindings = <&sl>, <&kp>;
         };
-
-        brl: balanced_repeat_layers {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            quick-tap-ms = <10>;
-            flavor = "balanced";
-            bindings = <&sl>, <&key_repeat>;
-        };
     };
 
    combos {
