@@ -104,10 +104,6 @@
         COMBO(v, &kp V, 13 22, 0, 50)
         COMBO(q, &kp Q, 16 23, 0, 50)
         COMBO(dot, &pdcol, 9 19, 0 1, 50)
-
-        // LAYERS
-        COMBO(lsfb, &sl SFB, 12 21, 0, 50)
-        COMBO(rsfb, &sl SFB, 17 24, 0, 50)
     };
 
     macros {
@@ -190,9 +186,9 @@
         luna_layer {
             label = "LUNA";
             bindings = <
-                &kp F &kp P     &kp D &kp W &kp Y                &kp M &brl SFB 0  &kp O       &kp U    &cmscl 
-                &kp S &kp N     &kp T &kp C &brl SFB 0           &kp X &kp H       &kp A       &kp E    &kp I
-                      &bht SRT B &kp K &kp G                           &kp L       &brl SFB 0  &sl SYM
+                &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
+                &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
+                      &bht SRT B &kp K &kp G                           &kp L       &key_repeat &sl SYM
                         &none  &bht NUM R                                &bht NAV SPACE &none 
             >;
         };       
