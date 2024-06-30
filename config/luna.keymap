@@ -64,6 +64,15 @@
             flavor = "balanced";
             bindings = <&sl>, <&sl>;
         };
+
+        brl: balanced_repeat_layers {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <10>;
+            flavor = "balanced";
+            bindings = <&sl>, <&repeat_key>;
+        };
     };
 
    combos {
@@ -160,7 +169,7 @@
             bindings = <
                 &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
                 &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
-                      &bht SRT B &kp K &kp G                           &kp L       &key_repeat &bsl SFB SYM
+                      &bht SRT B &kp K &kp G                           &kp L       &brl SFB 0  &bsl SFB SYM
                         &none  &bht NUM R                                &bht NAV SPACE &none 
             >;
         };       
