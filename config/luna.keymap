@@ -71,7 +71,7 @@
             tapping-term-ms = <180>;
             quick-tap-ms = <10>;
             flavor = "balanced";
-            bindings = <&sl>, <&repeat_key>;
+            bindings = <&sl>, <&key_repeat>;
         };
     };
 
