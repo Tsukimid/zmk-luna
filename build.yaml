@@ -17,3 +17,5 @@ include:
     shield: luna_left
   - board: nice_nano_v2
     shield: luna_right
+  - board: nice_nano_v2
+    shield: settings_reset
