@@ -12,9 +12,6 @@
 #define navi 1
 
 / {
-    combos {
-        #include "combos.dtsi"
-    };
     
     behaviors {
         skq: sticky_key_quick_release {
