@@ -8,174 +8,45 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// layer definitions
-#define LUNA 0
-#define NUM 1
-#define SRT 2
-#define BNM 3
-#define SYM 4
-#define NAV 5
-#define FUN 6
-// -----------------
-&sl {
-    release-after-ms = <2000>;
-};
+#define luna 0
+#define navi 1
 
 / {
+    combos {
+        #include "combos.dtsi"
+    };
+    
     behaviors {
         skq: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
             label = "STICKY_KEY_QUICK_RELEASE";
             #binding-cells = <1>;
             bindings = <&kp>;
-            release-after-ms = <2000>;
             quick-release;
-        };
-
-        pdcol: period_colon {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
-            mods = <(MOD_LSFT)>;
-        };
-
-        cmscl: comma_semicolon {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_LSFT)>;
-        };
-
-        bht: balanced_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            quick-tap-ms = <10>;
-            flavor = "balanced";
-            bindings = <&sl>, <&kp>;
-        };
-    };
-
-   combos {
-        compatible = "zmk,combos";
-
-        #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, MS) \
-          combo_##NAME { \
-            bindings = <BINDINGS>; \
-            key-positions = <KEYPOS>; \
-            layers = <LAYERS>; \
-            timeout-ms = <MS>; \
-        };
-
-        // BSPC, ENTER, CAPS
-        COMBO(bspc, &kp BSPC, 6 7, 0 1, 30)
-        COMBO(cbspc, &kp LC(BSPC), 6 7 8, 0 1, 30)
-        COMBO(ctrlw, &kp LC(W), 6 7 8 9, 0 1, 30)
-        COMBO(enter, &kp ENTER, 23 24 25, 0 1, 30)
-        COMBO(caps, &kp CAPS, 14 15, 0, 30)
-        COMBO(capsword, &caps_word, 3 6, 0, 30)
-
-        // SHORTCUTS
-        COMBO(zhis, &kp LC(R), 11 27, 0, 10)
-
-        // BRACKETS
-        COMBO(rangle, &kp GT, 5 15, 0, 50)
-        COMBO(langle, &kp LT, 4 14, 0, 50)
-        COMBO(rround, &kp RPAR, 6 16, 0, 50)
-        COMBO(lround, &kp LPAR, 3 13, 0, 50)
-        COMBO(rcurve, &kp RBRC, 7 17, 0, 50)
-        COMBO(lcurve, &kp LBRC, 2 12, 0, 50)
-        COMBO(rsquare, &kp RBKT, 8 18, 0, 50)
-        COMBO(lsquare, &kp LBKT, 1 11, 0, 50)
-
-        // ALPHAS
-        COMBO(z, &kp Z, 0 10, 0, 50)
-        COMBO(j, &kp J, 11 20, 0, 50)
-        COMBO(v, &kp V, 13 22, 0, 50)
-        COMBO(q, &kp Q, 16 23, 0, 50)
-        COMBO(dot, &pdcol, 9 19, 0 1, 50)
-    };
-
-    macros {
-        lmao: lmao {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                =  <&macro_tap &kp L &kp M &kp A &kp O>
-                ;
+            release-after-ms = <1000>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
-                
-        luna_layer {
+
+       luna_layer {
             label = "LUNA";
             bindings = <
                 &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
-                &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
-                      &bht SRT B &kp K &kp G                           &kp L       &key_repeat &sl SYM
-                        &none  &bht NUM R                                &bht NAV SPACE &none 
+                &kp S &kp N     &kp T &kp C &kp X                &kp X &kp H       &kp A       &kp E    &kp I
+                      &kp B     &kp K &kp G                           &kp L       &key_repeat &sl SYM
+                        &none   &mo navi                            &bht NAV SPACE &none 
             >;
-        };       
+        };     
                  
-        num_layer {
-            label = "NUM";
+        navi_layer {
+            label = "navi";
             bindings = <
-                &none       &kp TAB   &sk LALT  &kp DEL &kp LG(P)	    &none &kp N7 &kp N8 &kp N9 &cmscl
-                &skq LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(Q)	    &none &kp N4 &kp N5 &kp N6 &skq LSHIFT
-                            &kp LC(X) &kp LC(C) &kp LC(V) 	    	          &kp N1 &kp N2 &kp N3
-                              &trans &trans                                      &kp N0 &none  
-            >;
-        };
-                
-        srt_layer {
-            label = "SRT";
-            bindings = <
-                &none         &none &none           &none       &kp LC(Y)	    &kp LA(COMMA) &kp LA(DOT)       &kp LA(LC(PG_UP)) &kp LA(LC(PG_DN)) &none
-                &kp LS(LG(S)) &none &kp LC(N6)      &kp LG(TAB) &kp LC(Z)	    &kp LA(LS(R)) &kp LA(LC(LEFT))  &kp LA(LC(UP))    &kp LA(LC(DOWN))  &kp LA(LC(RIGHT)) 
-                              &none &kp LC(LC(TAB)) &kp LC(TAB) 	    	                  &kp LA(LC(SPACE)) &kp LA(LC(H))     &kp LA(LC(L))
-                                &none  &sl BNM                                                  &trans &none
-            >;
-        };  
-        
-        bnm_layer {
-            label = "BNM";
-            bindings = <
-                &none &none &none &none &none	    &none &kp LA(LC(N4)) &kp LA(LC(N5)) &kp LA(LC(N6)) &none
-                &none &none &none &none &none	    &none &kp LA(LC(N1)) &kp LA(LC(N2)) &kp LA(LC(N3)) &none
-                      &none &none &none 	    	      &kp LA(LC(N7)) &kp LA(LC(N8)) &kp LA(LC(N9))
-                        &none  &trans                       &kp LA(LC(N0)) &none  
-            >;
-        };      
-
-        sym_layer {
-            label = "SYM";
-            bindings = <
-                &kp HASH &kp UNDER &kp EQUAL &kp AT  &kp STAR	    &kp AMPS &kp EXCL  &none    &none &none
-                &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp CARET 	    &kp PLUS &kp QMARK &kp DQT  &none &lmao
-                         &kp DLLR  &kp PIPE  &kp TILDE	    	             &kp PRCNT &kp BSLH &none
-                           &none  &trans                                       &trans &none  
-            >;
-        };
-                
-        nav_layer {
-            label = "NAV";
-            bindings = <
-                &none      &none        &none        &none    &none	    &none &kp K_PP &kp PG_UP    &kp PG_DN    &none
-                &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp LEFT &kp UP       &kp DOWN     &kp RIGHT
-                           &kp C_BRI_DN &kp C_BRI_UP &none 	       	          &none    &kp K_VOL_UP &kp K_VOL_DN
-                            &none  &sl FUN                                      &trans &none  
-            >;
-        };       
-                 
-        fun_layer {
-            label = "FUN";
-            bindings = <
-                &none &none &none &none &none	    &kp F12 &kp F4 &kp F5 &kp F6 &kp F11
-                &none &none &none &none &none	    &none   &kp F1 &kp F2 &kp F3 &kp F10
-                      &none &none &none 	    	        &kp F7 &kp F8 &kp F9
-                        &none  &trans                         &trans &none  
+                &kp COMMA &kp U &kp O &kp DOT &kp M        &kp K &kp P &kp O     &kp U    &kp SQT 
+                &kp I     &kp E &kp A &kp H   &kp V        &kp B &kp H &kp A     &kp I    &kp E
+                          &kp Z &kp J &kp L                    &kp D &kp COMMA &kp DOT
+                             &trans &trans                 &kp SPACE &kp SQT  
             >;
         };
     };
