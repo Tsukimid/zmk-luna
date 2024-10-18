@@ -113,19 +113,19 @@
             label = "LUNA";
             bindings = <
                 &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
-                &kp S &kp N     &kp T &kp C &kp X          &kp X &kp H       &kp A       &kp E    &kp I
-                      &kp B &kp K &kp G                           &kp L       &key_repeat &sl SYM
-                        &none  &mo NUM                                &bht NAV SPACE &none 
+                &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
+                      &bht SRT B &kp K &kp G                           &kp L       &key_repeat &sl SYM
+                        &none  &bht NUM R                                &bht NAV SPACE &none 
             >;
         };       
                  
         num_layer {
             label = "NUM";
             bindings = <
-                &kp COMMA &kp U &kp O &kp DOT &kp M        &kp K &kp P &kp O     &kp U    &kp SQT 
-                &kp I     &kp E &kp A &kp H   &kp V        &kp B &kp H &kp A     &kp I    &kp E
-                          &kp Z &kp J &kp L                    &kp D &kp COMMA &kp DOT
-                             &trans &trans                 &kp SPACE &kp SQT  
+                &none       &kp TAB   &sk LALT  &kp DEL &kp LG(P)	    &none &kp N7 &kp N8 &kp N9 &cmscl
+                &skq LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(Q)	    &none &kp N4 &kp N5 &kp N6 &skq LSHIFT
+                            &kp LC(X) &kp LC(C) &kp LC(V) 	    	          &kp N1 &kp N2 &kp N3
+                              &trans &trans                                      &kp N0 &none  
             >;
         };
                 
