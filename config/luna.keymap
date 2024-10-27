@@ -143,20 +143,20 @@
         navi_layer {
             label = "navigation keys";
             bindings = <
-                &none      &none      &none     &none    &none	    &kp HOME  &kp END   &kp PG_UP  &kp PG_DN  &none
-                &kp LSHIFT &kp LCTRL  &kp LGUI  &kp LALT &none	    &kp LG(V) &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
-                           &none      &none     &none 	       	              &none     &none      &none
-                             &none  &sl VNAV                                    &trans &none  
+                &none      &none     &none    &none    &none	    &none  &none     &kp PG_UP  &kp PG_DN  &none
+                &kp LSHIFT &kp LCTRL &kp LGUI &kp LALT &none	    &none  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
+                           &none     &none    &none 	       	           &none     &kp HOME   &kp END
+                             &none  &sl VNAV                                 &trans &none  
             >;
         };   
 
         vnav_layer {
             label = "navigation keys for vim navigation";
             bindings = <
-                &none      &none        &none        &none    &none	    &none &none   &none   &none    &none
-                &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp H   &kp J   &kp K    &kp L
-                           &none        &none        &none 	       	          &none   &none   &none
-                            &none  &none                                        &trans &none  
+                &none      &none     &none    &none    &none	    &none &none     &none   &none    &none
+                &kp LSHIFT &kp LCTRL &kp LGUI &kp LALT &none	    &none &kp H     &kp J   &kp K    &kp L
+                           &none     &none    &none 	       	          &kp LG(V) &none   &none
+                            &none  &none                                    &trans &none  
             >;
         };  
                 
