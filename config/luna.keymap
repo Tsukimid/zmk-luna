@@ -10,13 +10,14 @@
 
 // layer definitions
 #define LUNA 0
-#define NUM 1
-#define FUN 2
-#define NAV 3
-#define VNV 4
-#define SRT 5
-#define BNM 6
-#define SYM 7
+#define NUMS 1
+#define FUNC 2
+#define NAVI 3
+#define VNAV 4
+#define SHRT 5
+#define SNUM 6
+#define MCTL 7
+#define SYMS 8
 // -----------------
 &sl {
     release-after-ms = <1750>;
@@ -110,27 +111,27 @@
         compatible = "zmk,keymap";
                 
         luna_layer {
-            label = "LUNA";
+            label = "base layer";
             bindings = <
                 &kp F &kp P     &kp D &kp W &kp Y                &kp M &kp J       &kp O       &kp U    &cmscl 
                 &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
-                      &bht SRT B &kp K &kp G                           &kp L       &key_repeat &sl SYM
-                        &none  &bht NUM R                                &bht NAV SPACE &none 
+                      &bht SHRT B &kp K &kp G                           &kp L       &key_repeat &sl SYMS
+                        &none  &bht NUMS R                                &bht NAVI SPACE &none 
             >;
         };       
                  
-        num_layer {
-            label = "NUM";
+        nums_layer {
+            label = "numbers and modifiers";
             bindings = <
                 &none       &kp TAB   &sk LALT  &kp DEL &kp LG(P)	    &none &kp N7 &kp N8 &kp N9 &cmscl
                 &skq LSHIFT &sk LCTRL &sk LGUI  &kp ESC &kp LG(Q)	    &none &kp N4 &kp N5 &kp N6 &skq LSHIFT
                             &kp LC(X) &kp LC(C) &kp LC(V) 	    	          &kp N1 &kp N2 &kp N3
-                              &none &trans                                      &bht FUN N0 &none  
+                              &none &trans                                      &bht FUNC N0 &none  
             >;
         };
                  
-        fun_layer {
-            label = "FUN";
+        func_layer {
+            label = "function keys";
             bindings = <
                 &none  &none  &none  &none    &none	      &kp F12 &kp F7 &kp F8 &kp F9 &kp F11
                 &trans &trans &trans &sk LALT &none	      &none   &kp F4 &kp F5 &kp F6 &kp F10
@@ -139,38 +140,38 @@
             >;
         };
 
-        nav_layer {
-            label = "NAV";
+        navi_layer {
+            label = "navigation keys";
             bindings = <
-                &none      &none        &none        &none    &none	    &none &kp K_PP &kp PG_UP    &kp PG_DN    &none
+                &none      &none        &none        &none    &none	    &none &none    &kp PG_UP    &kp PG_DN    &none
                 &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp LEFT &kp UP       &kp DOWN     &kp RIGHT
                            &kp C_BRI_DN &kp C_BRI_UP &none 	       	          &none    &kp K_VOL_UP &kp K_VOL_DN
-                            &none  &sl VNV                                      &trans &none  
+                            &none  &sl VNAV                                      &trans &none  
             >;
         };   
 
-        vim_nav_layer {
-            label = "VIM_NAV";
+        vnav_layer {
+            label = "navigation keys for vim navigation";
             bindings = <
-                &none      &none        &none        &none    &none	    &none &kp K_PP &kp PG_UP    &kp PG_DN    &none
+                &none      &none        &none        &none    &none	    &none &none    &kp PG_UP    &kp PG_DN    &none
                 &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp H    &kp J        &kp K        &kp L
                            &none        &none        &none 	       	          &none    &none        &none
                             &none  &none                                        &trans &none  
             >;
         };  
                 
-        srt_layer {
-            label = "SRT";
+        shrt_layer {
+            label = "shortcut keys";
             bindings = <
                 &none         &none &none           &none       &kp LC(Y)	    &kp LA(COMMA) &kp LA(DOT)       &kp LA(LC(PG_UP)) &kp LA(LC(PG_DN)) &none
                 &kp LS(LG(S)) &none &kp LC(N6)      &kp LG(TAB) &kp LC(Z)	    &kp LA(LS(R)) &kp LA(LC(LEFT))  &kp LA(LC(UP))    &kp LA(LC(DOWN))  &kp LA(LC(RIGHT)) 
                               &none &kp LS(LC(TAB)) &kp LC(TAB) 	    	                  &kp LA(LC(SPACE)) &kp LA(LC(H))     &kp LA(LC(L))
-                                &none  &sl BNM                                                  &trans &none
+                                &none  &sl SNUM                                                  &sl MCTL &none
             >;
         };  
         
-        bnm_layer {
-            label = "BNM";
+        snum_layer {
+            label = "number shortcuts for sideberry";
             bindings = <
                 &none &none &none &none &none	    &none &kp LA(LC(N4)) &kp LA(LC(N5)) &kp LA(LC(N6)) &none
                 &none &none &none &none &none	    &none &kp LA(LC(N1)) &kp LA(LC(N2)) &kp LA(LC(N3)) &none
@@ -179,8 +180,18 @@
             >;
         };      
 
-        sym_layer {
-            label = "SYM";
+        mctl_layer {
+            label = "screen/media functions";
+            bindings = <
+                &none &none &none &none &none	    &none &kp LA(LC(N4)) &kp LA(LC(N5)) &kp LA(LC(N6)) &none
+                &none &none &none &none &none	    &none &kp LA(LC(N1)) &kp LA(LC(N2)) &kp LA(LC(N3)) &none
+                      &none &none &none 	    	      &kp LA(LC(N7)) &kp LA(LC(N8)) &kp LA(LC(N9))
+                        &none  &trans                       &kp LA(LC(N0)) &none  
+            >;
+        };  
+
+        syms_layer {
+            label = "symbols layer";
             bindings = <
                 &kp HASH &kp UNDER &kp EQUAL &kp AT  &kp STAR	    &kp AMPS &kp EXCL  &none    &none &none
                 &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp CARET 	    &kp PLUS &kp QMARK &kp DQT  &none &lmao
