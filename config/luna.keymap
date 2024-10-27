@@ -11,11 +11,11 @@
 // layer definitions
 #define LUNA 0
 #define NUM 1
-#define FUN 2
-#define NAV 3
-#define SRT 4
-#define BNM 5
-#define SYM 6
+#define SRT 2
+#define BNM 3
+#define SYM 4
+#define NAV 5
+#define FUN 6
 // -----------------
 &sl {
     release-after-ms = <1750>;
