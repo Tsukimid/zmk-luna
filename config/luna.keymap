@@ -143,19 +143,19 @@
         navi_layer {
             label = "navigation keys";
             bindings = <
-                &none      &none        &none        &none    &none	    &none &none    &kp PG_UP    &kp PG_DN    &none
-                &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp LEFT &kp UP       &kp DOWN     &kp RIGHT
-                           &kp C_BRI_DN &kp C_BRI_UP &none 	       	          &none    &kp K_VOL_UP &kp K_VOL_DN
-                            &none  &sl VNAV                                      &trans &none  
+                &none      &none      &none     &none    &none	    &kp HOME  &kp END   &kp PG_UP  &kp PG_DN  &none
+                &kp LSHIFT &kp LCTRL  &kp LGUI  &kp LALT &none	    &kp LG(V) &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
+                           &none      &none     &none 	       	              &none     &none      &none
+                             &none  &sl VNAV                                    &trans &none  
             >;
         };   
 
         vnav_layer {
             label = "navigation keys for vim navigation";
             bindings = <
-                &none      &none        &none        &none    &none	    &none &none    &kp PG_UP    &kp PG_DN    &none
-                &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp H    &kp J        &kp K        &kp L
-                           &none        &none        &none 	       	          &none    &none        &none
+                &none      &none        &none        &none    &none	    &none &none   &none   &none    &none
+                &kp LSHIFT &kp LCTRL    &kp LGUI     &kp LALT &none	    &none &kp H   &kp J   &kp K    &kp L
+                           &none        &none        &none 	       	          &none   &none   &none
                             &none  &none                                        &trans &none  
             >;
         };  
@@ -166,7 +166,7 @@
                 &none         &none &none           &none       &kp LC(Y)	    &kp LA(COMMA) &kp LA(DOT)       &kp LA(LC(PG_UP)) &kp LA(LC(PG_DN)) &none
                 &kp LS(LG(S)) &none &kp LC(N6)      &kp LG(TAB) &kp LC(Z)	    &kp LA(LS(R)) &kp LA(LC(LEFT))  &kp LA(LC(UP))    &kp LA(LC(DOWN))  &kp LA(LC(RIGHT)) 
                               &none &kp LS(LC(TAB)) &kp LC(TAB) 	    	                  &kp LA(LC(SPACE)) &kp LA(LC(H))     &kp LA(LC(L))
-                                &none  &sl SNUM                                                  &sl MCTL &none
+                                &none  &sl SNUM                                                 &sl MCTL &none
             >;
         };  
         
@@ -183,10 +183,10 @@
         mctl_layer {
             label = "screen/media functions";
             bindings = <
-                &none &none &none &none &none	    &none &kp LA(LC(N4)) &kp LA(LC(N5)) &kp LA(LC(N6)) &none
-                &none &none &none &none &none	    &none &kp LA(LC(N1)) &kp LA(LC(N2)) &kp LA(LC(N3)) &none
-                      &none &none &none 	    	      &kp LA(LC(N7)) &kp LA(LC(N8)) &kp LA(LC(N9))
-                        &none  &trans                       &kp LA(LC(N0)) &none  
+                &none &none &none &none &none	    &none &kp C_MUTE   &kp C_VOL_UP &kp C_VOL_DN &none
+                &none &none &none &none &none	    &none &kp C_PP     &kp C_NEXT   &kp C_PREV   &none
+                      &none &none &none 	    	      &none        &kp C_BRI_UP &kp C_BRI_DN
+                        &none  &trans                       &none &none  
             >;
         };  
 
