@@ -110,8 +110,8 @@
         luna_layer {
             label = "base layer";
             bindings = <
-                &kp F &kp P     &kp D &kp W &kp Y                &kp M &kp J       &kp O       &kp U    &cmscl 
-                &kp S &kp N     &kp T &kp C &key_repeat          &kp X &kp H       &kp A       &kp E    &kp I
+                &kp F &kp P     &kp D &kp W &kp Y                &kp M &key_repeat &kp O       &kp U    &cmscl 
+                &kp S &kp N     &kp T &kp C &kp J                &kp X &kp H       &kp A       &kp E    &kp I
                       &bht SHRT B &kp K &kp G                           &kp L       &key_repeat &sl SYMS
                         &none  &bht NUMS R                                &bht NAVI SPACE &none 
             >;
@@ -190,8 +190,8 @@
         syms_layer {
             label = "symbols layer";
             bindings = <
-                &kp HASH &kp UNDER &kp EQUAL &kp AT  &kp STAR	    &kp AMPS &kp EXCL  &none    &none &none
-                &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp CARET 	    &kp PLUS &kp QMARK &kp DQT  &none &lmao
+                &kp DQT  &kp UNDER &kp EQUAL &kp AT  &kp STAR	    &kp AMPS &kp EXCL  &none    &none &none
+                &kp FSLH &kp MINUS &kp GRAVE &kp SQT &kp CARET 	    &kp PLUS &kp QMARK &kp HASH  &none &lmao
                          &kp DLLR  &kp PIPE  &kp TILDE	    	             &kp PRCNT &kp BSLH &none
                            &none  &trans                                       &trans &none  
             >;
